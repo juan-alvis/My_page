@@ -8,14 +8,28 @@ ventana = pygame.display.set_mode((constantes.height,
                                    constantes.width))
 pygame.display.set_caption("JUEGUITO")
 
+def escalar_img(image,scala):
+    w=image.get_width()
+    h=image.get_height()
+    nueva_imagen=pygame.transform.scale(image,size=(w*scala,h*scala))
+    return nueva_imagen
 
-jugador = Personaje (x=50, y=50)
+animaciones=[]
+for i in range (10):
+    img=pygame.image.load (f"D:/codes/computer-science/Game/assets/image ({i}).png")
+    img=escalar_img(img, constantes.scala_personaje)
+    animaciones.append(img)
+#player_image=pygame.image.load ("D:/codes/computer-science/Game/assets/image.png")#Ir a la dirección de la 1ra imagen del personaje
+player_image=escalar_img(player_image,constantes.scala_personaje)
+player_image=pygame.transform.scale(player_image,(player_image.get_width()*constantes.scala_personaje,player_image.get_height()*constantes.scala_personaje))
+
+jugador = Personaje (x=50, y=50, image=player_image)
 
 
 mover_arriba=False 
 mover_abajo=False
 mover_izquierda=False
-mover_derecha=False
+mover_derecha=False #Estados de movimiento del personaje
 
 #Controlar el frame rate
 reloj=pygame.time.Clock()

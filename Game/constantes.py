@@ -7,3 +7,4 @@ color_personaje = (255,255,0)
 color_bg=(0, 0, 20)
 FPS = 60
 velocidad=10
+scala_personaje=1.3
